@@ -1,0 +1,236 @@
+.notification-container{
+  margin: auto;
+  margin-bottom: 20px;
+  border: 1px solid #eeeeee;
+  width: 50%;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+.notification-header{
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--secondary-color);
+  color: white;
+  padding: 5px 10px;
+}
+
+.notification-body{
+  padding: 25px 30px;
+  display: flex;
+  justify-content: space-between;
+}
+.notification-video{
+  height: 200px;
+  border-radius: 10px;
+}
+.notification-reply-container{
+  text-align: end;
+}
+.notification-answer{
+  font-style: italic;
+  padding-bottom: 20px;
+  max-width: 300px;
+  text-align: center;
+  font-weight: bold;
+}
+.notification-reply-btn{
+  border: none;
+  background-color: var(--primary-btn-color);
+  color: white;
+  margin-right: 15px;
+  border-radius: 1rem;
+  width: 100px;
+  padding: 5px 0;
+  cursor: pointer;
+  font-size: 16px;
+
+}
+.notification-submit-reply-btn{
+  border: none;
+  background-color: var(--primary-btn-color);
+  color: white;
+  margin-right: 5px;
+  border-radius: 1rem;
+  width: 120px;
+  padding: 5px 0;
+  cursor: pointer;
+  font-size: 14px;
+
+}
+.notification-replied{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  border: none;
+  background-color: var(--primary-btn-color);
+  opacity: .6;
+  color: white;
+  margin-right: 15px;
+  border-radius: 1rem;
+  width: 100px;
+  padding: 5px 0;
+  font-size: 16px;
+  
+}
+
+.notification-replied::before{
+  font-family: "Material Icons";
+  content: "\e5ca";
+  padding-right:3px;
+  color: #fff;
+}
+
+.notification-video-info{
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+.notification-info{
+  
+}
+.notification-info-profile{
+  display: flex;
+  justify-content: end;
+  align-items: flex-start;
+}
+.notification-content{
+  padding: 50px 0 0 0;
+  text-align: center;
+}
+.question{
+  font-style: italic;
+  padding-bottom: 20px;
+  text-align: center;
+  
+}
+.notification-name{
+  padding-top: 2px;
+  padding-right: 10px;
+  font-weight: bold;
+  text-align: center;
+}
+.notification-country{
+font-size: 11px;
+padding-right: 15px;
+}
+.notification-pic{
+  width: 50px;
+  border-radius: 50%;
+}
+.select-filter-container{
+  margin: auto;
+  margin-bottom: 10px;
+  width: 95%;
+  display: flex;
+  justify-content: end;
+}
+.notification-reply {
+  margin-top: 10px;
+}
+.notification-reply textarea{
+  max-width: 300px;
+  min-width: 300px;
+  max-height: 40px;
+  min-height: 40px;
+  padding:10px 10px;
+  border: 1px solid #ccc;
+  border-radius: .5rem;
+}
+
+.like-video{
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+}
+
+.center-text{
+  text-align: center;
+}
+@media (max-width: 770px) {
+  .notification-name{
+    padding-top: 0px;
+
+  }
+  .notification-country{
+    padding-right: 10px;
+
+  }
+  .notification-info-profile{
+    justify-content: center;
+  }
+  .notification-container{
+    font-size: 12px;
+    width: 300px;
+  }
+  .notification-video{
+    height: 150px;
+    border-radius: 5px;
+
+}
+  .notification-pic{
+    width: 30px;
+    border-radius: 50%;
+  }
+  .notification-replied-container{
+    display: flex;
+    justify-content: center;
+  }
+  .notification-replied{
+    margin: 0;
+  }
+  .notification-reply-btn{
+    margin-right:0px
+  }
+  .notification-submit-reply-btn-container{
+    display: flex;
+    justify-content: center;
+  }
+  .notification-submit-reply-btn{
+    border: none;
+    background-color: var(--primary-btn-color);
+    color: white;
+    border-radius: 2rem;
+    width: 100px;
+    padding: 5px 0;
+    cursor: pointer;
+    font-size: 12px;
+    margin: auto;
+}
+
+  .notification-body{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+  .notification-content{
+    padding:  0;
+  }
+  .question{
+    padding: 10px 0;
+  }
+  .notification-answer{
+    padding: 10px 0;
+  }
+  .notification-replied{
+    width: 80px;
+    font-size: 14px;
+  }
+}
+@media (max-width: 1050px) {
+  .notification-reply textarea{
+    max-width: 150px;
+    min-width: 150px;
+    max-height: 40px;
+    min-height: 40px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: .5rem;
+  }
+}
+@media (max-width: 420px) {
+  .notification-container{
+    width: 95%;
+  }
+}
