@@ -5,7 +5,7 @@ import toast, { Toaster } from "react-hot-toast";
 import { http } from "../../api";
 import { useGlobal } from "../../context";
 
-const SubVideo = ({ data, trigger, setTrigger, likeData }) => {
+const SubVideo = ({ data, trigger, setTrigger, likeData, previousVideoSubRef }) => {
   const [sub, setSub] = useState(true);
   const [isPlaying, setIsPlaying] = useState(false);
   const [isReplay, setIsReplay] = useState(false);
@@ -25,6 +25,11 @@ const SubVideo = ({ data, trigger, setTrigger, likeData }) => {
     setComment(event.target.value);
   };
   const handlePlay = () => {
+    if (previousVideoSubRef.current) {
+      previousVideoSubRef.current.pause();
+    }
+    previousVideoSubRef.current = videoRef.current;
+
     videoRef.current.play();
     setIsPlaying(true);
   };
@@ -137,6 +142,7 @@ const SubVideo = ({ data, trigger, setTrigger, likeData }) => {
       )
       .then((success) => {
         setFaqsTrigger(!faqsTrigger);
+        setTrigger(!trigger);
         setComment("");
         toast.success("Comment submitted successfully");
         setTimeout(() => {
@@ -229,6 +235,7 @@ const SubVideo = ({ data, trigger, setTrigger, likeData }) => {
             </span>
           </div>
         </div>
+        <p className='video-topic'>{data.keywords}</p>
         <div className='video-container'>
           <video
             ref={videoRef}
@@ -422,6 +429,9 @@ const SubVideo = ({ data, trigger, setTrigger, likeData }) => {
                   chat
                 </span>
               </button>
+              <br />
+              {data.comments ? millify(data.comments) : 0}
+              <br />
               {/* <br />
             {data.comments ? data.comments : 0}
             <br />

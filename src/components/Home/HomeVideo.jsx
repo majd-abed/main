@@ -5,7 +5,14 @@ import toast, { Toaster } from "react-hot-toast";
 import { http } from "../../api";
 import { useGlobal } from "../../context";
 
-const HomeVideo = ({ data, subData, likeData, trigger, setTrigger }) => {
+const HomeVideo = ({
+  data,
+  subData,
+  likeData,
+  trigger,
+  setTrigger,
+  previousVideoRef,
+}) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isReplay, setIsReplay] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
@@ -49,6 +56,7 @@ const HomeVideo = ({ data, subData, likeData, trigger, setTrigger }) => {
       )
       .then((success) => {
         setFaqsTrigger(!faqsTrigger);
+        setTrigger(!trigger);
         setComment("");
         toast.success("Comment submitted successfully");
         setTimeout(() => {
@@ -64,6 +72,10 @@ const HomeVideo = ({ data, subData, likeData, trigger, setTrigger }) => {
   };
 
   const handlePlay = () => {
+    if (previousVideoRef.current) {
+      previousVideoRef.current.pause();
+    }
+    previousVideoRef.current = videoRef.current;
     videoRef.current.play();
     setIsPlaying(true);
   };
@@ -229,6 +241,7 @@ const HomeVideo = ({ data, subData, likeData, trigger, setTrigger }) => {
           </span>
         </div>
       </div>
+      <p className='video-topic'>{data.keywords}</p>
       <div className='video-container'>
         <video
           ref={videoRef}
@@ -420,6 +433,9 @@ const HomeVideo = ({ data, subData, likeData, trigger, setTrigger }) => {
                 chat
               </span>
             </button>
+            <br />
+            {data.comments ? millify(data.comments) : 0}
+            <br />
             {/* <br />
             {data.comments ? data.comments : 0}
             <br />

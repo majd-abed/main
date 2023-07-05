@@ -44,6 +44,7 @@ function App() {
     <>
       <NavMenus />
       <Routes>
+        {/* <Route path='/' element={<Test />} /> */}
         <Route path='/' element={<IsAuth />} />
         {/* <Route path='/welcome' element={<Landing />} /> */}
         <Route path='/terms' element={<Terms />} />

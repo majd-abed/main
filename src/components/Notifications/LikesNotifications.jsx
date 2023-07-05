@@ -126,9 +126,9 @@ const LikesNotifications = () => {
                       <div className='notification-video-section'>
                         <div className='notification-video-info'>
                           <p style={{ fontWeight: "bold" }}>{e.category_name}</p>
-                          <p>{e.keywords}</p>
+                          <p className='vid-topic'>{e.keywords}</p>
                         </div>
-                        <div className='like-video'>
+                        <div className='notification-video-container'>
                           <video src={e.video} className='notification-video' />
                         </div>
                       </div>
@@ -151,8 +151,8 @@ const LikesNotifications = () => {
                             you got a Like!
                           </p>
                           <span
-                            className='material-symbols-outlined'
-                            style={{ fontSize: "50px" }}>
+                            className='material-symbols-rounded'
+                            style={{ fontSize: "50px", color: "#f04c68" }}>
                             favorite
                           </span>
                         </div>
